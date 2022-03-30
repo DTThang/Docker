@@ -61,3 +61,10 @@ VOLUME | tạo một điểm gắn thư mục để truy cập và lưu trữ da
   - Sau khi có được Container, chúng ta thực hiện push Container này lên cloud và lưu tại đó.
 - **Pull/Run**
   - Nếu một máy tính khác muốn sử dụng Container chúng ta thì bắt buộc máy phải thực hiện việc Pull container này về máy, tất nhiên máy này cũng phải cài Docker Engine. Sau đó thực hiện Run Container này.
+
+
+# Tham khảo
+
+- https://topdev.vn/blog/docker-la-gi/
+
+- https://dev.classmethod.jp/articles/docker-la-gi-tim-hieu-mot-so-dinh-nghia-co-ban-ve-docker/
