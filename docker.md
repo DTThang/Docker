@@ -37,7 +37,7 @@
 
   - Docker client có thể giao tiếp và gửi request đến nhiều Docker daemon.
 - **Docker registry**
- - Docker registry là một kho chứa các Image. Images được push vào registry và client sẽ pull images từ registry. Nổi tiếng nhất chính là Docker Hub, ngoài ra bạn có thể tự xây dựng một Docker registry cho riêng mình.
+  - Docker registry là một kho chứa các Image. Images được push vào registry và client sẽ pull images từ registry. Nổi tiếng nhất chính là Docker Hub, ngoài ra bạn có thể tự xây dựng một Docker registry cho riêng mình.
 - **Docker object**
   - Các object này chính là các đối tượng mà bạn thường xuyên gặp phải khi sử dụng Docker gồm có: 
     - Images
