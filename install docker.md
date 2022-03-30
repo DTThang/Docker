@@ -1,4 +1,4 @@
-# 1. Các phiên bản Docker#
+# 1. Các phiên bản Docker
 
  Có hai phiên bản chính của Docker là Docker EE, và Docker CE.
 
@@ -54,49 +54,62 @@ Centos 8 | enp1s0: 192.168.70.52 | 2 CPU - 2GB RAM	| 30GB
 
 
 ## 2.2 Cài đặt docker thông qua ansible
-
-- Tạo file playbook.yml chứa nội dung sau 
-
+- Tạo file playbook.yml với nội dung 
 ```
-- name: install request
-  yum:
-    name:
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
-    state: latest
-    update_cache: yes
-- name: Add Docker repo
-  get_url:
-        url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docker-ce.repo
-  become: yes
+- name: Install docker
+  gather_facts: No
+  hosts: node2
 
-- name: Enable Docker Edge repo
-  ini_file:
+  tasks:
+  - name: install request
+    yum:
+      name:
+        - yum-utils
+        - device-mapper-persistent-data
+        - lvm2
+      state: latest
+      update_cache: yes
+  - name: Add Docker repo
+    get_url:
+          url: https://download.docker.com/linux/centos/docker-ce.repo
+          dest: /etc/yum.repos.d/docker-ce.repo
+    become: yes
+
+  - name: Enable Docker Edge repo
+    ini_file:
         dest: /etc/yum.repos.d/docker-ce.repo
         section: 'docker-ce-edge'
         option: enabled
         value: 0
-  become: yes
+    become: yes
 
-- name: Enable Docker Test repo
-  ini_file:
+  - name: Enable Docker Test repo
+    ini_file:
         dest: /etc/yum.repos.d/docker-ce.repo
         section: 'docker-ce-test'
         option: enabled
         value: 0
-  become: yes
-- name: install docker
-  yum:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-    state: latest
-    update_cache: yes
-- name: start & enble docker
-  service:
-    name: docker
-    state: started
-    enabled: yes
+    become: yes
+  - name: install docker
+    yum:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+      state: latest
+      update_cache: yes
+  - name: start & enble docker
+    service:
+      name: docker
+      state: started
+      enabled: yes
+```
+
+- Chạy file playbook.yml để cài đặt
+ ![image](image/Screenshot_5.png)
+
+
+# Tham khảo
+
+- https://blog.cloud365.vn/container/tim-hieu-docker-phan-2/
+- https://gist.github.com/yonglai/d4617d6914d5f4eb22e4e5a15c0e9a03
