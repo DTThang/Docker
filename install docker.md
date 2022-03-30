@@ -21,12 +21,13 @@
 
 - Hệ điều hành centos 8
 
-OS | Interface | hardware | disk 
----|---|---|---
-Centos 8 | enp1s0: 192.168.70.52 | 2 CPU - 2GB RAM	| 30GB
+Hostname| OS | Interface | hardware | disk 
+---|---|---|---|---
+ansible | Ubuntu 20.04 | enp1s0: 192.168.70.50 | 2 CPU - 2GB RAM	| 30GB
+node2 | Centos 8 | enp1s0: 192.168.70.52 | 2 CPU - 2GB RAM	| 30GB
 
 ## 2.2 Cài đặt Docker sử dụng yum và repository
-
+- Thực hiện trên node2 
 - Cài đặt các gói cần thiết
  
       yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -54,10 +55,10 @@ Centos 8 | enp1s0: 192.168.70.52 | 2 CPU - 2GB RAM	| 30GB
 
 
 ## 2.2 Cài đặt docker thông qua ansible
+- Thực hiện trên ansible
 - Tạo file playbook.yml với nội dung 
 ```
 - name: Install docker
-  gather_facts: No
   hosts: node2
 
   tasks:
