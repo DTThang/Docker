@@ -3,10 +3,11 @@
 - Các containers cho phép lập trình viên đóng gói một ứng dụng với tất cả các phần cần thiết, chẳng hạn như thư viện và các phụ thuộc khác, và gói tất cả ra dưới dạng một package.
 # 2. Lợi ích của docker
 - Thời gian “start” và “stop” cực ngắn
-- Có thể run container trên mỗi hệ thống mong muốn 
-- Dễ dàng thiét lập môi trường làm việc. Các lập trình viên khi sử dụng Docker chỉ cần config 1 lần. Họ sẽ không cần cài đặt lại Dependencies sau đó nữa. Nếu có sự thay đổi mới về thành viên hay thiết bị, người dùng chỉ cần chia sẻ config mà thôi.
+- Tính đóng gói và di động: Tất cả các gói dependencies cần thiết đều được đóng gói vừa đủ trong container. Và sau đó có thể mang đi triển khai trên các server khác.
+- Cô lập tài nguyên: server không biết ở trong container chạy gì và container cũng không cần biết là CentOs hay Ubuntu. Các container độc lập với nhau và có thể giao tiếp với nhau bằng một interface
+- Hỗ trợ phát triển và quản lý ứng dụng nhanh: Đối với Dev, sử dụng docker giúp họ giảm thiểu thời gian setup môi trường, đóng gói được các môi trường giống nhau từ Dev - Staging - Production :v
 - Nó giữ cho word-space sạch sẽ hơn khi xóa môi trường mà ảnh hưởng đến các phần khác.
-
+- Mã nguồn mở: Cộng đồng support lớn, các tính năng mới được release liên tục.
 # 3. Docker Engine
 - Docker Engine là một ứng dụng client-server. Có hai phiên bản Docker Engine phổ biến là:
 
